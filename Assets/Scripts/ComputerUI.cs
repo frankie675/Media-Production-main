@@ -2,19 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ComputerUI : MonoBehaviour
 {
     public GameObject ui;
-    public string correctPassword = "password"; // Change this to your correct password
-    private InputField passwordInputField;
+    public string correctPassword = "1234"; // Change this to your correct password
+    private TMP_InputField passwordInputField;
     private bool isUIVisible = false;
+
+    public Animator doorAnimator;
 
     void Start()
     {
         HideUI();
         // Find the InputField component within the children of the UI GameObject
-        passwordInputField = ui.GetComponentInChildren<InputField>();
+       passwordInputField = ui.GetComponentInChildren<TMP_InputField>();
+       
+       // passwordInputField = GameObject.FindWithTag("passwordinput").GetComponent<TMP_InputField>();
+        //ui.GetComponentInChildren<InputField>();
+
+Debug.Log("PasswordInput: " + passwordInputField);
+
+
         if (passwordInputField == null)
         {
             Debug.LogError("InputField not found in UI GameObject.");
@@ -64,9 +74,13 @@ public class ComputerUI : MonoBehaviour
 
     public void SubmitPassword()
     {
+        Debug.Log("submit password"); 
         if (passwordInputField != null)
         {
+            Debug.Log("checking password..."); 
             string password = passwordInputField.text;
+            Debug.Log("password: " + password);
+          
             if (password == correctPassword)
             {
                 CorrectAnswer();
@@ -88,9 +102,10 @@ public class ComputerUI : MonoBehaviour
 
     public void CorrectAnswer()
     {
-        // Add code to trigger door animation here
-        Debug.Log("Correct password entered. Door opening...");
+       doorAnimator.SetBool("doorOpen", true);
+       Debug.Log("Correct password entered. Door opening..."); 
         HideUI(); // Hide the UI after correct password is entered
+
     }
 
     public void WrongAnswer()
