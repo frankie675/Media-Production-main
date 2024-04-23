@@ -7,7 +7,7 @@ using TMPro;
 public class ComputerUI : MonoBehaviour
 {
     public GameObject ui;
-    public string correctPassword = "1234"; // Change this to your correct password
+    public string correctPassword = "Mindlock"; // Change this to your correct password
     private TMP_InputField passwordInputField;
     private bool isUIVisible = false;
 
