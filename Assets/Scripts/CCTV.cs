@@ -9,5 +9,6 @@ public class camlookat : MonoBehaviour
     void Update()
     {
         cam.LookAt(player);
+        transform.Rotate( 0, 180, 0 );
     }
 }
