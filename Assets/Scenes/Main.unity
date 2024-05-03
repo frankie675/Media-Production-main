@@ -16310,6 +16310,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bot-Unityv2
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: cc73e40862adc42e5befb9d61486ec0e, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 5e52bef9919e1482796856a7b3078605, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
