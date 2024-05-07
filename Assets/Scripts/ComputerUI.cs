@@ -12,6 +12,7 @@ public class ComputerUI : MonoBehaviour
     private bool isUIVisible = false;
 
     public Animator doorAnimator;
+      public AudioClip door;
 
     void Start()
     {
@@ -73,6 +74,7 @@ Debug.Log("PasswordInput: " + passwordInputField);
     }
 
     public void SubmitPassword()
+
     {
         Debug.Log("submit password"); 
         if (passwordInputField != null)
@@ -103,6 +105,7 @@ Debug.Log("PasswordInput: " + passwordInputField);
     public void CorrectAnswer()
     {
        doorAnimator.SetBool("doorOpen", true);
+       GetComponent<AudioSource>().PlayOneShot(door);
        Debug.Log("Correct password entered. Door opening..."); 
         HideUI(); // Hide the UI after correct password is entered
 
